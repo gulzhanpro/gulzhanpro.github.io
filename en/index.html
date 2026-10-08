@@ -64,7 +64,7 @@ section { padding-block: 72px 0; }
 .avatar { flex: none; width: 136px; height: 136px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; border: 3px solid var(--line); }
 .id-text { display: grid; gap: 6px; min-width: 0; }
 .id-text b { font-family: var(--font-display); font-weight: 500; font-size: clamp(17px, 2.4vw, 24px); overflow-wrap: anywhere; }
-.hero h1 { font-size: clamp(26px, 5vw, 56px); overflow-wrap: anywhere; }
+.hero h1 { font-size: clamp(26px, 5cqw, 56px); overflow-wrap: anywhere; }
 .hero h1 em { font-style: normal; background: linear-gradient(transparent 84%, var(--pop) 84% 95%, transparent 95%); }
 .lead { font-size: 19px; color: var(--muted); max-width: 54ch; margin: 0; }
 .cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
@@ -434,7 +434,6 @@ document.getElementById("req").addEventListener("submit", function (e) {
   }
 });
 
-document.documentElement.classList.add("m");
 apply(lang);
 railState();
 </script>
