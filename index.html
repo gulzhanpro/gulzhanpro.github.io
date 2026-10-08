@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Gulzhan Amirbayeva: product consultant, entrepreneur, AI creator. Launching digital products from idea to stable sales.">
 <meta name="color-scheme" content="dark">
-<title>Gulzhan Amirbayeva</title>
+<title>Гульжан Амирбаева</title>
 <link rel="alternate" hreflang="ru" href="https://gulzhanpro.github.io/">
 <link rel="alternate" hreflang="en" href="https://gulzhanpro.github.io/en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -188,7 +188,7 @@ footer { padding-block: 28px 0; }
       <div class="hero-text">
         <div class="id">
           <img class="avatar" src="/avatar.jpg" alt="Gulzhan Amirbayeva" width="136" height="136" fetchpriority="high">
-          <div class="id-text"><b>Gulzhan Amirbayeva</b><span class="mono" data-i="role"></span></div>
+          <div class="id-text"><b data-i="name"></b><span class="mono" data-i="role"></span></div>
         </div>
         <h1 data-i="h1"></h1>
         <p class="lead" data-i="lead"></p>
@@ -320,13 +320,13 @@ footer { padding-block: 28px 0; }
     </section>
   </main>
 
-  <footer class="mono">© 2026 Gulzhan Amirbayeva</footer>
+  <footer class="mono">© 2026 <span data-i="name"></span></footer>
 </div>
 
 <script>
 var T = {
   ru: {
-    nav_services:"Услуги", nav_projects:"Проекты", nav_formats:"Форматы", mob:"Моб. вид",
+    name:"Гульжан Амирбаева", nav_services:"Услуги", nav_projects:"Проекты", nav_formats:"Форматы", mob:"Моб. вид",
     role:"Консультант по продукту | Предприниматель | ИИ-креатор",
     h1:"Запускаю приложения и вебсайты: <em>от идеи</em> до стабильных продаж",
     lead:"Помогаю бизнесу запускать и улучшать цифровые продукты, чтобы они находили своего клиента и приносили прибыль.",
@@ -360,7 +360,7 @@ var T = {
     f_ok:"Запрос отправлен. Отвечу на ваш email.", f_err:"Не удалось отправить. Напишите напрямую.", f_mail:"Открываю почту с готовым письмом."
   },
   en: {
-    nav_services:"Services", nav_projects:"Projects", nav_formats:"Formats", mob:"Mobile view",
+    name:"Gulzhan Amirbayeva", nav_services:"Services", nav_projects:"Projects", nav_formats:"Formats", mob:"Mobile view",
     role:"Product consultant | Entrepreneur | AI creator",
     h1:"I launch apps and websites: <em>from idea</em> to stable sales",
     lead:"I help businesses launch and improve digital products that reach product-market fit and turn a profit.",
@@ -396,6 +396,7 @@ var T = {
 var lang = document.documentElement.lang === "en" ? "en" : "ru";
 function apply(l) {
   document.querySelectorAll("[data-i]").forEach(function (el) { el.innerHTML = T[l][el.getAttribute("data-i")]; });
+  document.querySelector(".avatar").alt = T[l].name;
   document.getElementById("l-ru").setAttribute("aria-pressed", String(l === "ru"));
   document.getElementById("l-en").setAttribute("aria-pressed", String(l === "en"));
 }
