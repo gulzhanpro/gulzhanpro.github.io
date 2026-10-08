@@ -124,6 +124,7 @@ a.pcard:hover { border-color: var(--pop); }
 .pbody p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
 .next { position: absolute; right: 8px; top: 230px; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--ink); background: var(--bg); color: var(--ink); font: 500 22px/1 var(--font-body); display: grid; place-items: center; cursor: pointer; padding: 0; }
 .next:hover { background: var(--pop); border-color: var(--pop); color: var(--bg); }
+.next.prev { right: auto; left: 8px; }
 .next[hidden] { display: none; }
 
 /* cases: plain text */
@@ -175,7 +176,6 @@ footer { padding-block: 28px 0; }
       <a href="#formats" data-i="nav_formats"></a>
     </nav>
     <div class="tools">
-      <button class="pill" id="m-toggle" aria-pressed="true" data-i="mob"></button>
       <button class="pill" id="l-ru" aria-pressed="true">RU</button>
       <button class="pill" id="l-en" aria-pressed="false">EN</button>
     </div>
@@ -247,6 +247,7 @@ footer { padding-block: 28px 0; }
             </div>
           </div>
         </div>
+        <button class="next prev" type="button" aria-label="Previous" hidden>&lt;</button>
         <button class="next" type="button" aria-label="Next">&gt;</button>
       </div>
     </section>
@@ -344,7 +345,7 @@ var T = {
     pk1:"Изучение и погружение в ваш проект", pk2:"Стратегия и roadmap", pk3:"План запуска",
     pk4:"Управление разработкой с Claude Code или аутсорс-командой", pk5:"Составление unit-экономики",
     pk6:"Аналитические дашборды для отслеживания метрик", pk7:"Проектный менеджмент", pk8:"Другие задачи по согласованию",
-    p_label:"2020–2026", p_title:"Проекты, в которых участвовала",
+    p_label:"2020–2026", p_title:"Проекты",
     p1:"Кредитование под залог Биткоина для аккредитованных инвесторов Сингапура, от $10 тыс.", p2:"Каталог цветов: в наличии и предзаказ.",
     p3:"Почасовая аренда кабинетов в Алматы. AI-ассистент в WhatsApp принимает бронь и оплату.",
     p4:"Приложение со скидками: карта и список предложений.",
@@ -407,12 +408,14 @@ var wraps = document.querySelectorAll(".rail-wrap");
 function railState() {
   wraps.forEach(function (w) {
     var r = w.querySelector(".rail");
-    w.querySelector(".next").hidden = r.scrollLeft + r.clientWidth >= r.scrollWidth - 8;
+    w.querySelector(".next:not(.prev)").hidden = r.scrollLeft + r.clientWidth >= r.scrollWidth - 8;
+    w.querySelector(".prev").hidden = r.scrollLeft < 8;
   });
 }
 wraps.forEach(function (w) {
   var r = w.querySelector(".rail");
-  w.querySelector(".next").onclick = function () { r.scrollBy({ left: r.clientWidth * 0.8, behavior: "smooth" }); };
+  w.querySelector(".next:not(.prev)").onclick = function () { r.scrollBy({ left: r.clientWidth * 0.8, behavior: "smooth" }); };
+  w.querySelector(".prev").onclick = function () { r.scrollBy({ left: -r.clientWidth * 0.8, behavior: "smooth" }); };
   r.addEventListener("scroll", railState);
 });
 window.addEventListener("resize", railState);
@@ -435,19 +438,7 @@ document.getElementById("req").addEventListener("submit", function (e) {
   }
 });
 
-var DEFAULT_MOBILE = true; /* set false to open in the full-width layout by default */
-function setMobile(on) {
-  document.documentElement.classList.toggle("m", on);
-  document.getElementById("m-toggle").setAttribute("aria-pressed", String(on));
-  try { localStorage.setItem("mobile", on ? "1" : "0"); } catch (e) {}
-  setTimeout(railState, 50);
-}
-var savedM = null;
-try { savedM = localStorage.getItem("mobile"); } catch (e) {}
-setMobile(savedM === null ? DEFAULT_MOBILE : savedM === "1");
-document.getElementById("m-toggle").onclick = function () {
-  setMobile(!document.documentElement.classList.contains("m"));
-};
+document.documentElement.classList.add("m");
 apply(lang);
 railState();
 </script>
