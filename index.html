@@ -99,6 +99,14 @@ section { padding-block: 72px 0; }
 .row p { margin: 0; color: var(--muted); }
 @container (max-width: 680px) { .row { grid-template-columns: 1fr; gap: 8px; } }
 
+/* tags */
+.tagsets { display: grid; gap: 36px; }
+.tagset { display: grid; gap: 16px; }
+.tagset h3 { font-size: clamp(20px, 2.4vw, 26px); }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.tags b { font: 500 15px var(--font-mono); letter-spacing: .02em; padding: 9px 14px; border: 1px solid; }
+.tags.pink b { color: var(--pop); border-color: var(--pop); }
+.tags.olive b { color: var(--accent); border-color: var(--accent); }
 /* starter package */
 .offers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
 .pack { background: var(--surface); border: 1px solid var(--line); padding: clamp(24px, 4vw, 40px); display: grid; gap: 22px; align-content: start; min-width: 0; }
@@ -262,6 +270,13 @@ footer { padding-block: 28px 0; }
         <div class="row"><h3 data-i="s3t"></h3><p data-i="s3d"></p></div>
         <div class="row"><h3 data-i="s4t"></h3><p data-i="s4d"></p></div>
         <div class="row"><h3 data-i="s5t"></h3><p data-i="s5d"></p></div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="tagsets">
+        <div class="tagset"><h3>Stack</h3><div class="tags pink"><b>Claude Code</b><b>Higgsfield</b><b>Miro</b><b>Figma</b><b>Jira</b><b>Trello</b><b>CRM</b><b>CMS</b><b>ERP</b><b>WMS</b><b>API-integrations</b><b>PowerBI</b></div></div>
+        <div class="tagset"><h3>Framework</h3><div class="tags olive"><b>Agile</b><b>Lean</b><b>CustDev</b><b>Unit-Economy</b><b>Pitch</b><b>Pivot</b></div></div>
       </div>
     </section>
 
