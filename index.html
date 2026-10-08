@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Gulzhan Amirbayeva: product consultant, entrepreneur, AI creator. Launching digital products from idea to stable sales.">
+<meta name="color-scheme" content="dark">
+<title>Gulzhan Amirbayeva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: identity row with round avatar, statement, ledger of figures, services as ruled rows,
+   starter package block, projects as a horizontal card rail, two plain-text cases, olive contact block. */
+:root {
+  /* single dark theme: deep blue-green, olive + fuchsia accents */
+  --bg: #0a1418;
+  --surface: #11202a;
+  --ink: #e8eff2;
+  --muted: #9bafb8;
+  --line: #213441;
+  --accent: #a9b058;      /* olive: buttons, bars, contact block */
+  --accent-ink: #0a1418;
+  --pop: #ff3fb4;         /* fuchsia: highlights, arrows, figures */
+  --link: #ff3fb4;
+  --font-display: "Unbounded", "Onest", system-ui, sans-serif;
+  --font-body: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+  padding-inline: 20px; padding-block: 0 56px;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 1120px; margin-inline: auto; container-type: inline-size; }
+html.m .wrap { max-width: 420px; }
+.mono { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.12; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(24px, 3.4vw, 36px); }
+section { padding-block: 72px 0; }
+.sec-head { display: grid; gap: 10px; margin-bottom: 32px; }
+
+/* top bar */
+.bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px 16px; padding-block: 20px; }
+.bar nav { display: flex; gap: 22px; align-items: center; }
+.bar nav a { text-decoration: none; font-size: 15px; color: var(--muted); }
+.bar nav a:hover { color: var(--ink); }
+.tools { display: flex; gap: 8px; }
+.pill { font: 500 12.5px var(--font-mono); letter-spacing: .06em; border: 1px solid var(--line); background: transparent; color: var(--ink); padding: 7px 12px; cursor: pointer; border-radius: 999px; }
+.pill[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.bar .tools { margin-left: auto; }
+@container (max-width: 720px) { .bar nav { display: none; } }
+
+/* hero */
+.hero { padding-block: 40px 0; }
+.hero-text { display: grid; gap: 28px; min-width: 0; max-width: 820px; }
+.id { display: flex; align-items: center; gap: 20px; }
+.avatar { flex: none; width: 136px; height: 136px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; border: 3px solid var(--line); }
+.id-text { display: grid; gap: 6px; min-width: 0; }
+.id-text b { font-family: var(--font-display); font-weight: 500; font-size: clamp(17px, 2.4vw, 24px); overflow-wrap: anywhere; }
+.hero h1 { font-size: clamp(26px, 5vw, 56px); overflow-wrap: anywhere; }
+.hero h1 em { font-style: normal; background: linear-gradient(transparent 84%, var(--pop) 84% 95%, transparent 95%); }
+.lead { font-size: 19px; color: var(--muted); max-width: 54ch; margin: 0; }
+.cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.btn { display: inline-block; text-decoration: none; background: var(--accent); color: var(--accent-ink); font-weight: 600; padding: 15px 26px; border: 2px solid var(--accent); }
+.btn:hover { background: transparent; color: var(--ink); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--ink); }
+@container (max-width: 520px) { .avatar { width: 88px; height: 88px; } .id { gap: 14px; } }
+
+/* ledger */
+.ledger { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--ink); margin-top: 72px; }
+.ledger div { padding: 26px 20px 26px 0; display: grid; gap: 6px; align-content: start; border-right: 1px solid var(--line); padding-left: 20px; }
+.ledger div:first-child { padding-left: 0; }
+.ledger div:last-child { border-right: 0; }
+.ledger strong { color: var(--accent); font-family: var(--font-display); font-weight: 500; font-size: clamp(26px, 3.6vw, 40px); font-variant-numeric: tabular-nums; }
+.ledger span { color: var(--muted); font-size: 15px; }
+@container (max-width: 760px) {
+  .ledger { grid-template-columns: 1fr 1fr; }
+  .ledger div { padding-left: 0; border-bottom: 1px solid var(--line); }
+  .ledger div:nth-child(2n) { border-right: 0; padding-left: 20px; }
+  .ledger div:nth-last-child(-n+2) { border-bottom: 0; }
+  .ledger strong { font-size: 26px; white-space: nowrap; }
+  .ledger span { font-size: 14px; line-height: 1.45; }
+}
+
+/* services */
+.rows { display: grid; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 24px; padding-block: 24px; border-top: 1px solid var(--line); }
+.row:last-child { border-bottom: 1px solid var(--line); }
+.row h3 { font-size: clamp(18px, 2vw, 22px); display: grid; grid-template-columns: 12px 1fr; gap: 12px; align-items: baseline; }
+.row h3::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--pop); }
+.row p { margin: 0; color: var(--muted); }
+@container (max-width: 680px) { .row { grid-template-columns: 1fr; gap: 8px; } }
+
+/* starter package */
+.offers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.pack { background: var(--surface); border: 1px solid var(--line); padding: clamp(24px, 4vw, 40px); display: grid; gap: 22px; align-content: start; min-width: 0; }
+.pack h3 { font-size: clamp(20px, 2.4vw, 26px); }
+.pack-price { display: grid; gap: 4px; }
+.pack-price strong { font-family: var(--font-display); font-weight: 500; font-size: clamp(26px, 3.6vw, 38px); color: var(--accent); line-height: 1.1; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.checks li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; }
+.checks li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+@container (max-width: 900px) { .offers { grid-template-columns: 1fr; } }
+
+/* projects: horizontal rail */
+.rail-wrap { position: relative; }
+.rail { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
+.rail::-webkit-scrollbar { display: none; }
+.pcard { flex: 0 0 min(70%, 250px); scroll-snap-align: start; display: grid; grid-template-rows: auto 1fr; align-self: start; text-decoration: none; background: var(--surface); border: 1px solid var(--line); min-width: 0; }
+a.pcard:hover { border-color: var(--pop); }
+.yrs { font: 500 13px var(--font-mono); color: var(--pop); margin-top: 6px; }
+.shot.ph { aspect-ratio: 16 / 10; display: grid; place-items: center; text-align: center; padding: 12px; font-family: var(--font-display); font-size: 19px; letter-spacing: .04em; color: var(--accent); background: linear-gradient(135deg, #11202a, #1a3140); }
+.rail-wrap.exp .next { top: 80px; }
+.xcard .chips { margin-top: 6px; }
+.shot { width: 100%; height: auto; display: block; background: var(--line); }
+.pbody { padding: 16px 18px 20px; display: grid; gap: 6px; align-content: start; }
+.pbody h3 { font-size: 18px; }
+.pbody p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.next { position: absolute; right: 8px; top: 230px; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--ink); background: var(--bg); color: var(--ink); font: 500 22px/1 var(--font-body); display: grid; place-items: center; cursor: pointer; padding: 0; }
+.next:hover { background: var(--pop); border-color: var(--pop); color: var(--bg); }
+.next[hidden] { display: none; }
+
+/* cases: plain text */
+.cases { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.case { border-top: 1px solid var(--ink); padding-top: 20px; display: grid; gap: 16px; align-content: start; min-width: 0; }
+.case h3 { font-size: 22px; }
+.case p { margin: 0; max-width: 56ch; }
+.bars { display: grid; gap: 8px; margin-top: 4px; }
+.bars div { display: grid; grid-template-columns: 56px 1fr; gap: 10px; align-items: center; font: 500 13px var(--font-mono); }
+.bars i { display: block; height: 14px; background: var(--line); }
+.bars i.now { background: var(--accent); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips b { font: 500 13px var(--font-mono); border: 1px solid var(--pop); color: var(--pop); padding: 5px 10px; font-variant-numeric: tabular-nums; }
+@container (max-width: 860px) { .cases { grid-template-columns: 1fr; gap: 36px; } }
+
+/* contact */
+.contact { background: var(--accent); color: var(--accent-ink); padding: clamp(28px, 5vw, 56px); display: grid; gap: 24px; margin-top: 72px; }
+.contact h2 { color: var(--accent-ink); }
+.contact .mono { color: var(--accent-ink); opacity: .7; }
+.req { display: grid; gap: 14px; max-width: 460px; }
+.req label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+.req input { font: inherit; font-weight: 400; color: var(--accent-ink); background: transparent; border: 2px solid var(--accent-ink); padding: 14px 16px; min-width: 0; border-radius: 0; }
+.req input::placeholder { color: var(--accent-ink); opacity: .45; }
+.req button { justify-self: start; font: inherit; font-weight: 600; cursor: pointer; background: var(--accent-ink); color: var(--accent); border: 2px solid var(--accent-ink); padding: 15px 26px; }
+.req button:hover { background: transparent; color: var(--accent-ink); }
+.req .mono { min-height: 1.2em; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.or { margin-top: 4px; }
+.links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.lk { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: center; text-decoration: none; padding: 16px 18px; border: 2px solid var(--accent-ink); color: var(--accent-ink); min-width: 0; }
+.lk svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.lk span { display: grid; min-width: 0; }
+.lk b { font-weight: 600; font-size: 17px; }
+.lk small { font-size: 14px; opacity: .8; overflow-wrap: anywhere; }
+.lk:hover, .lk.main { background: var(--accent-ink); color: var(--accent); }
+.lk.main:hover { background: transparent; color: var(--accent-ink); }
+@container (max-width: 640px) { .links { grid-template-columns: 1fr; } }
+.contact :focus-visible { outline-color: var(--accent-ink); }
+footer { padding-block: 28px 0; }
+@media (prefers-reduced-motion: no-preference) { .btn, .pill, .next, .pcard, .lk { transition: background .15s, color .15s, border-color .15s; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <nav>
+      <a href="#projects" data-i="nav_projects"></a>
+      <a href="#services" data-i="nav_services"></a>
+      <a href="#formats" data-i="nav_formats"></a>
+    </nav>
+    <div class="tools">
+      <button class="pill" id="m-toggle" aria-pressed="true" data-i="mob"></button>
+      <button class="pill" id="l-ru" aria-pressed="true">RU</button>
+      <button class="pill" id="l-en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-text">
+        <div class="id">
+          <img class="avatar" src="avatar.jpg" alt="Gulzhan Amirbayeva" width="136" height="136" fetchpriority="high">
+          <div class="id-text"><b>Gulzhan Amirbayeva</b><span class="mono" data-i="role"></span></div>
+        </div>
+        <h1 data-i="h1"></h1>
+        <p class="lead" data-i="lead"></p>
+        <div class="cta">
+          <a class="btn" href="#contact" data-i="cta"></a>
+          <a class="btn ghost" href="#projects" data-i="cta2"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ledger">
+      <div><strong>7+</strong><span data-i="f1"></span></div>
+      <div><strong>10+</strong><span data-i="f2"></span></div>
+      <div><strong data-i="f3n"></strong><span data-i="f3"></span></div>
+      <div><strong>2</strong><span data-i="f4"></span></div>
+    </div>
+
+    <section id="projects">
+      <div class="sec-head"><span class="mono" data-i="p_label"></span><h2 data-i="p_title"></h2></div>
+      <div class="rail-wrap">
+        <div class="rail">
+          <a class="pcard" href="https://safebay.sg" target="_blank" rel="noopener">
+            <img class="shot" src="img/safebay.jpg" alt="" loading="lazy">
+            <div class="pbody"><h3>Safebay</h3><span class="mono">safebay.sg</span><p data-i="p1"></p><span class="yrs">2025-2026</span></div>
+          </a>
+          <a class="pcard" href="https://shop.florex.kz" target="_blank" rel="noopener">
+            <img class="shot" src="img/florex.jpg" alt="" loading="lazy">
+            <div class="pbody"><h3>Florex</h3><span class="mono">shop.florex.kz</span><p data-i="p2"></p><span class="yrs">2025-2026</span></div>
+          </a>
+          <a class="pcard" href="https://zenstudio.kz" target="_blank" rel="noopener">
+            <img class="shot" src="img/zenstudio.jpg" alt="" loading="lazy">
+            <div class="pbody"><h3>Zen Studio</h3><span class="mono">zenstudio.kz</span><p data-i="p3"></p><span class="yrs">2025-2026</span></div>
+          </a>
+          <a class="pcard" href="https://app.gooddeal.kz" target="_blank" rel="noopener">
+            <img class="shot" src="img/gooddeal.jpg" alt="" loading="lazy">
+            <div class="pbody"><h3>Good Deal</h3><span class="mono">app.gooddeal.kz</span><p data-i="p4"></p><span class="yrs">2025-2026</span></div>
+          </a>
+          <a class="pcard" href="https://pick-slot.app" target="_blank" rel="noopener">
+            <img class="shot" src="img/pickslot.jpg" alt="" loading="lazy">
+            <div class="pbody"><h3>Pickslot</h3><span class="mono">pick-slot.app</span><p data-i="p5"></p><span class="yrs">2025-2026</span></div>
+          </a>
+          <div class="pcard xcard">
+            <img class="shot" src="img/samsung.jpg" alt="" loading="lazy">
+            <div class="pbody">
+              <h3>Samsung eStore, Kazakhstan</h3>
+              <p data-i="c1"></p>
+              <div class="chips"><b>CR ×2</b><b>sales ×4</b><b>NPS +14</b><b>trade-in 15%+</b></div>
+              <span class="yrs">2020-2025</span>
+            </div>
+          </div>
+          <div class="pcard xcard">
+            <img class="shot" src="img/freedom.jpg" alt="" loading="lazy">
+            <div class="pbody">
+              <h3>Freedom SuperApp, Freedom Credit</h3>
+              <p data-i="c2"></p>
+              <div class="chips"><b>2M+ users</b><b>sales +30%</b></div>
+              <span class="yrs">2020-2025</span>
+            </div>
+          </div>
+        </div>
+        <button class="next" type="button" aria-label="Next">&gt;</button>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="sec-head"><span class="mono" data-i="nav_services"></span><h2 data-i="s_title"></h2></div>
+      <div class="rows">
+        <div class="row"><h3 data-i="s1t"></h3><p data-i="s1d"></p></div>
+        <div class="row"><h3 data-i="s2t"></h3><p data-i="s2d"></p></div>
+        <div class="row"><h3 data-i="s3t"></h3><p data-i="s3d"></p></div>
+        <div class="row"><h3 data-i="s4t"></h3><p data-i="s4d"></p></div>
+        <div class="row"><h3 data-i="s5t"></h3><p data-i="s5d"></p></div>
+      </div>
+    </section>
+
+    <section id="formats">
+      <div class="sec-head"><span class="mono" data-i="fm_label"></span><h2 data-i="fm_title"></h2></div>
+      <div class="offers">
+        <div class="pack">
+          <h3 data-i="o1_title"></h3>
+          <div class="pack-price"><strong data-i="o1_price"></strong><span class="mono" data-i="o1_note"></span></div>
+          <ul class="checks">
+            <li data-i="o1a"></li><li data-i="o1b"></li><li data-i="o1c"></li>
+          </ul>
+        </div>
+        <div class="pack">
+          <h3 data-i="o2_title"></h3>
+          <div class="pack-price"><strong data-i="o2_price"></strong><span class="mono" data-i="o2_note"></span></div>
+          <ul class="checks">
+            <li data-i="pk1"></li><li data-i="pk2"></li><li data-i="pk3"></li><li data-i="pk4"></li>
+            <li data-i="pk5"></li><li data-i="pk6"></li><li data-i="pk7"></li><li data-i="pk8"></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="padding-top:0">
+      <div class="contact">
+        <span class="mono" data-i="ct_label"></span>
+        <h2 data-i="ct_title"></h2>
+        <form class="req" id="req">
+          <label><span data-i="f_name"></span><input id="f-name" name="name" type="text" autocomplete="name" required></label>
+          <label><span data-i="f_email"></span><input id="f-email" name="email" type="email" autocomplete="email" required></label>
+          <input class="hp" id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn" type="submit" data-i="f_send"></button>
+          <span class="mono" id="f-status" aria-live="polite"></span>
+        </form>
+        <span class="mono or" data-i="f_or"></span>
+        <div class="links">
+          <a class="lk main" href="https://wa.me/77777732182" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9 9.2c0 3 2.8 5.8 5.8 5.8l1-1.6-2-1-1 .8c-.8-.4-1.6-1.2-2-2l.8-1-1-2z"/></svg>
+            <span><b>WhatsApp</b><small>+7 777 773-21-82</small></span>
+          </a>
+          <a class="lk" href="mailto:ga2709dev@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <span><b>Email</b><small>ga2709dev@gmail.com</small></span>
+          </a>
+          <a class="lk" href="https://www.instagram.com/gulzhan.product/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg>
+            <span><b>Instagram</b><small>@gulzhan.product</small></span>
+          </a>
+          <a class="lk" href="https://www.linkedin.com/in/gulzhan-amirbayeva-b894a19a/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10.5V16M8 7.8v.1M12 16v-5.5M12 12.8c0-1.6 1-2.6 2.5-2.6S17 11.2 17 12.8V16"/></svg>
+            <span><b>LinkedIn</b><small>Gulzhan Amirbayeva</small></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mono">© 2026 Gulzhan Amirbayeva</footer>
+</div>
+
+<script>
+var T = {
+  ru: {
+    nav_services:"Услуги", nav_projects:"Проекты", nav_formats:"Форматы", mob:"Моб. вид",
+    role:"Консультант по продукту | Предприниматель | ИИ-креатор",
+    h1:"Запускаю приложения и вебсайты: <em>от идеи</em> до стабильных продаж",
+    lead:"Помогаю бизнесу запускать и улучшать цифровые продукты, чтобы они находили своего клиента и приносили прибыль.",
+    cta:"Обсудить проект", cta2:"Смотреть проекты",
+    f1:"лет в запуске цифровых продуктов, включая работу в Samsung и Freedom Credit в качестве руководителя проектов", f2:"запущенных или завершённых продуктов", f3n:"2 года", f3:"средняя длительность работы с основателями и заказчиками", f4:"проекта, где я являюсь соучредителем",
+    s_title:"Чем могу быть полезна",
+    s1t:"Product management", s1d:"Стратегия продукта, приоритеты, дорожная карта, запуск и рост.",
+    s2t:"Project management", s2d:"Сроки, команда, бюджет и контроль запуска проекта.",
+    s3t:"Веб-разработка", s3d:"Управление командой разработки или вайбкодинг с Claude Code в зависимости от сложности задач.",
+    s4t:"Бизнес-анализ и дашборды", s4d:"Метрики и аналитические дашборды для решений.",
+    s5t:"ИИ-видео контент", s5d:"Создание коротких сериалов или серий рилс и shorts для продвижения продукта в соцсетях.",
+    fm_label:"Цены", fm_title:"Форматы работы",
+    o1_title:"Экспресс-консультация", o1_price:"50 000 ₸", o1_note:"~5 часов",
+    o1a:"Предварительное изучение проекта до звонка: 1 час",
+    o1b:"Онлайн или офлайн встреча: 2 часа",
+    o1c:"После встречи подготовлю для вас: резюме проблем проекта и план действий для получения результата, метрики для оценки результата и другие рекомендации либо конкретное решение запроса по договорённости: 2 часа",
+    o2_title:"Аутсорс управление проектом", o2_price:"от 300 000 ₸ в месяц", o2_note:"~45 часов · удалённо / гибрид",
+    pk1:"Изучение и погружение в ваш проект", pk2:"Стратегия и roadmap", pk3:"План запуска",
+    pk4:"Управление разработкой с Claude Code или аутсорс-командой", pk5:"Составление unit-экономики",
+    pk6:"Аналитические дашборды для отслеживания метрик", pk7:"Проектный менеджмент", pk8:"Другие задачи по согласованию",
+    p_label:"2020–2026", p_title:"Проекты, в которых участвовала",
+    p1:"Кредитование под залог Биткоина для аккредитованных инвесторов Сингапура, от $10 тыс.", p2:"Каталог цветов: в наличии и предзаказ.",
+    p3:"Почасовая аренда кабинетов в Алматы. AI-ассистент в WhatsApp принимает бронь и оплату.",
+    p4:"Приложение со скидками: карта и список предложений.",
+    p5:"Почасовое бронирование для коворкингов и переговорных. Сделан с нуля, в одиночку, с Claude Code.",
+    c_label:"2020–2025", c_title:"Опыт в крупных компаниях",
+    c1:"Запустила b2c интернет-магазин Samsung в Казахстане: эквайринг, рассрочки, оплата при получении и Kaspi. Первый в стране онлайн-trade-in смартфонов.",
+    c2:"Запустила рассрочку Freedom Credit на смартфоны Freedom Mobile в приложении Freedom SuperApp с аудиторией 2 млн+ пользователей.",
+    ct_label:"Контакты", ct_title:"Расскажите о задаче, и я предложу решение",
+    f_name:"Ваше имя", f_email:"Ваш email", f_send:"Отправить запрос", f_or:"Или напишите напрямую",
+    f_ok:"Запрос отправлен. Отвечу на ваш email.", f_err:"Не удалось отправить. Напишите напрямую.", f_mail:"Открываю почту с готовым письмом."
+  },
+  en: {
+    nav_services:"Services", nav_projects:"Projects", nav_formats:"Formats", mob:"Mobile view",
+    role:"Product consultant | Entrepreneur | AI creator",
+    h1:"I launch apps and websites: <em>from idea</em> to stable sales",
+    lead:"I help businesses launch and improve digital products that reach product-market fit and turn a profit.",
+    cta:"Discuss a project", cta2:"See projects",
+    f1:"years launching digital products, incl. Samsung and Freedom Credit as Senior Product and Project Manager", f2:"products launched or delivered", f3n:"2 years", f3:"average engagement with founders and clients", f4:"projects where I am a co-founder",
+    s_title:"How I can help",
+    s1t:"Product management", s1d:"Strategy, backlog, roadmap, go-to-market.",
+    s2t:"Project management", s2d:"Scope, timeline, budget. Scrum delivery.",
+    s3t:"Web development", s3d:"Lead the dev team or vibe code with Claude Code.",
+    s4t:"Analytics", s4d:"KPIs and dashboards for data-driven decisions.",
+    s5t:"AI video content", s5d:"Reels and shorts that promote your product.",
+    fm_label:"Pricing", fm_title:"Ways to work",
+    o1_title:"Express consultation", o1_price:"50,000 ₸", o1_note:"~5 hours",
+    o1a:"Pre-call project review: 1 hour",
+    o1b:"Online or in-person session: 2 hours",
+    o1c:"After the session: problem summary, action plan, KPIs and recommendations, or a specific solution by agreement: 2 hours",
+    o2_title:"Outsourced project management", o2_price:"from 300,000 ₸ / month", o2_note:"~45 hours · remote / hybrid",
+    pk1:"Discovery and onboarding", pk2:"Strategy and roadmap", pk3:"Launch plan",
+    pk4:"Dev management: Claude Code or outsourced team", pk5:"Unit economics",
+    pk6:"KPI dashboards", pk7:"Scrum project management", pk8:"Other tasks by agreement",
+    p_label:"2020–2026", p_title:"Projects",
+    p1:"Bitcoin-backed lending for accredited investors in Singapore, from $10K.", p2:"Flower catalog: in stock and pre-order.",
+    p3:"Hourly room rental in Almaty with a WhatsApp AI booking assistant.",
+    p4:"Discounts app with map and list.",
+    p5:"Hourly booking for coworkings. Built solo with Claude Code.",
+    c1:"Launched Samsung's online store in Kazakhstan: acquiring, installments, cash on delivery, Kaspi. First online smartphone trade-in in the country.",
+    c2:"Launched smartphone installments (BNPL) in Freedom SuperApp, 2M+ users.",
+    ct_label:"Contact", ct_title:"Tell me your task, I will suggest a solution",
+    f_name:"Your name", f_email:"Your email", f_send:"Send request", f_or:"Or message me directly",
+    f_ok:"Request sent. I will reply to your email.", f_err:"Could not send. Please message me directly.", f_mail:"Opening your email app with a ready message."
+  }
+};
+var lang = "ru";
+try { lang = localStorage.getItem("lang") || ((navigator.language || "").slice(0,2) === "ru" ? "ru" : "en"); } catch (e) {}
+function apply(l) {
+  lang = l;
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-i]").forEach(function (el) { el.innerHTML = T[l][el.getAttribute("data-i")]; });
+  document.getElementById("l-ru").setAttribute("aria-pressed", String(l === "ru"));
+  document.getElementById("l-en").setAttribute("aria-pressed", String(l === "en"));
+  try { localStorage.setItem("lang", l); } catch (e) {}
+}
+document.getElementById("l-ru").onclick = function () { apply("ru"); };
+document.getElementById("l-en").onclick = function () { apply("en"); };
+
+var wraps = document.querySelectorAll(".rail-wrap");
+function railState() {
+  wraps.forEach(function (w) {
+    var r = w.querySelector(".rail");
+    w.querySelector(".next").hidden = r.scrollLeft + r.clientWidth >= r.scrollWidth - 8;
+  });
+}
+wraps.forEach(function (w) {
+  var r = w.querySelector(".rail");
+  w.querySelector(".next").onclick = function () { r.scrollBy({ left: r.clientWidth * 0.8, behavior: "smooth" }); };
+  r.addEventListener("scroll", railState);
+});
+window.addEventListener("resize", railState);
+
+var FORM_ENDPOINT = "https://gulzhan-leads.ga2709dev.workers.dev/lead"; /* paste a Formspree or Web3Forms URL here to send requests without an email app */
+document.getElementById("req").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var name = document.getElementById("f-name").value.trim();
+  var email = document.getElementById("f-email").value.trim();
+  var out = document.getElementById("f-status");
+  if (!name || !email) return;
+  if (FORM_ENDPOINT) {
+    fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify({ name: name, email: email, website: document.getElementById("f-website").value }) })
+      .then(function (r) { if (!r.ok) throw new Error(); out.textContent = T[lang].f_ok; e.target.reset(); })
+      .catch(function () { out.textContent = T[lang].f_err; });
+  } else {
+    out.textContent = T[lang].f_mail;
+    var body = "Name: " + name + "\nEmail: " + email;
+    window.location.href = "mailto:ga2709dev@gmail.com?subject=" + encodeURIComponent("Request from the website") + "&body=" + encodeURIComponent(body);
+  }
+});
+
+var DEFAULT_MOBILE = true; /* set false to open in the full-width layout by default */
+function setMobile(on) {
+  document.documentElement.classList.toggle("m", on);
+  document.getElementById("m-toggle").setAttribute("aria-pressed", String(on));
+  try { localStorage.setItem("mobile", on ? "1" : "0"); } catch (e) {}
+  setTimeout(railState, 50);
+}
+var savedM = null;
+try { savedM = localStorage.getItem("mobile"); } catch (e) {}
+setMobile(savedM === null ? DEFAULT_MOBILE : savedM === "1");
+document.getElementById("m-toggle").onclick = function () {
+  setMobile(!document.documentElement.classList.contains("m"));
+};
+apply(lang);
+railState();
+</script>
+</body>
+</html>

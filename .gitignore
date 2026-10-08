@@ -1,0 +1,7 @@
+*
+!.gitignore
+!.nojekyll
+!index.html
+!avatar.jpg
+!img/
+!img/*.jpg
