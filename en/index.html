@@ -131,6 +131,8 @@ section { padding-block: 72px 0; }
 .rail::-webkit-scrollbar { display: none; }
 .pcard { flex: 0 0 min(70%, 250px); scroll-snap-align: start; display: grid; grid-template-rows: auto 1fr; align-self: start; text-decoration: none; background: var(--surface); border: 1px solid var(--line); min-width: 0; }
 a.pcard:hover { border-color: var(--pop); }
+.plinks { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.plinks a { font: 500 13px var(--font-mono); letter-spacing: .02em; color: var(--link); text-decoration: none; border-bottom: 1px solid currentColor; }
 .yrs { font: 500 13px var(--font-mono); color: var(--pop); margin-top: 6px; }
 .shot.ph { aspect-ratio: 16 / 10; display: grid; place-items: center; text-align: center; padding: 12px; font-family: var(--font-display); font-size: 19px; letter-spacing: .04em; color: var(--accent); background: linear-gradient(135deg, #11202a, #1a3140); }
 .rail-wrap.exp .next { top: 80px; }
@@ -225,10 +227,10 @@ footer { padding-block: 28px 0; }
       <div class="sec-head"><span class="mono" data-i="p_label"></span><h2 data-i="p_title"></h2></div>
       <div class="rail-wrap">
         <div class="rail">
-          <a class="pcard" href="https://app.safebay.sg" target="_blank" rel="noopener">
-            <img class="shot" src="/img/safebay.jpg" alt="" loading="lazy">
-            <div class="pbody"><h3>Safebay</h3><span class="mono">app.safebay.sg</span><p data-i="p1"></p><span class="yrs">2025-2026</span></div>
-          </a>
+          <div class="pcard xcard">
+            <a href="https://app.safebay.sg" target="_blank" rel="noopener"><img class="shot" src="/img/safebay.jpg" alt="" loading="lazy"></a>
+            <div class="pbody"><h3>Safebay</h3><div class="plinks"><a href="https://app.safebay.sg" target="_blank" rel="noopener">app.safebay.sg ↗</a><a href="https://sg.linkedin.com/company/safebay-finance" target="_blank" rel="noopener">LinkedIn ↗</a></div><p data-i="p1"></p><span class="yrs">2025-2026</span></div>
+          </div>
           <a class="pcard" href="https://shop.florex.kz" target="_blank" rel="noopener">
             <img class="shot" src="/img/florex.jpg" alt="" loading="lazy">
             <div class="pbody"><h3>Florex</h3><span class="mono">shop.florex.kz</span><p data-i="p2"></p><span class="yrs">2025-2026</span></div>
@@ -390,7 +392,7 @@ var T = {
     pk4:"Управление разработкой с Claude Code или аутсорс-командой", pk5:"Составление unit-экономики",
     pk6:"Аналитические дашборды для отслеживания метрик", pk7:"Проектный менеджмент", pk8:"Другие задачи по согласованию",
     p_label:"2020–2026", p_title:"Проекты",
-    p1:"Кредитование под залог Биткоина для аккредитованных инвесторов Сингапура, от $10 тыс.", p2:"Каталог цветов: в наличии и предзаказ.",
+    p1:"Кредитование под залог Биткоина для аккредитованных инвесторов Сингапура, от $10 тыс. Руководила разработкой: от юзерфлоу и процесс-флоу, найма команды разработки и приоритизации задач до коммуникации между бизнесом, техкомандой и партнёрами. В продукте API-интеграции с Singpass, BitGo, HexTrust и Regtank.", p2:"Помогла компании автоматизировать процессы: разработала архитектуру передачи данных между CMS, CRM, ERP и WMS, руководила внедрением этих систем и запуском вебшопа. Компания перешла от ручной работы с клиентами в WhatsApp к CRM, от Excel к ERP, обновила 1С, настроила аналитику и работу с конверсией.",
     p3:"Почасовая аренда кабинетов в Алматы. AI-ассистент в WhatsApp принимает бронь и оплату.",
     p4:"Приложение со скидками: карта и список предложений.",
     p5:"Почасовое бронирование для коворкингов и переговорных. Сделан с нуля, в одиночку, с Claude Code.",
@@ -434,7 +436,7 @@ var T = {
     pk4:"Dev management: Claude Code or outsourced team", pk5:"Unit economics",
     pk6:"KPI dashboards", pk7:"Scrum project management", pk8:"Other tasks by agreement",
     p_label:"2020–2026", p_title:"Projects",
-    p1:"Bitcoin-backed lending for accredited investors in Singapore, from $10K.", p2:"Flower catalog: in stock and pre-order.",
+    p1:"Bitcoin-backed lending for accredited investors in Singapore, from $10K. I led development: user flows and process flows, hiring the dev team, task prioritization, and communication between business, tech teams and partners. Includes API integrations with Singpass, BitGo, HexTrust and Regtank.", p2:"Helped the company automate processes: designed the data architecture between CMS, CRM, ERP and WMS, led the rollout of these systems and the web shop launch. The company moved from manual client work in WhatsApp to a CRM, from Excel to an ERP, updated 1C, and set up analytics and conversion work.",
     p3:"Hourly room rental in Almaty with a WhatsApp AI booking assistant.",
     p4:"Discounts app with map and list.",
     p5:"Hourly booking for coworkings. Built solo with Claude Code.",
